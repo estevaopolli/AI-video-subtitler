@@ -1,0 +1,32 @@
+1
+00:00:00,000 -> 00:00:02,320
+Eu preciso ajudar o meu pai no trabalho hoje.
+ 
+2
+00:00:02,600 -> 00:00:04,020
+Trabalho? Trabalho?
+ 
+3
+00:00:04,460 -> 00:00:06,540
+Que papo é esse de trabalho, cara?
+ 
+4
+00:00:06,960 -> 00:00:08,240
+Quem vai trabalhar, cara?
+ 
+5
+00:00:08,520 -> 00:00:10,340
+Nós vamos trabalhar? Quem vai trabalhar?
+ 
+6
+00:00:10,640 -> 00:00:12,020
+Eu não quero trabalhar!
+ 
+7
+00:00:12,560 -> 00:00:14,120
+Relaxa, bro, tudo bem.
+ 
+8
+00:00:14,420 -> 00:00:17,120
+Ninguém vai trabalhar, eu prometo.
+ 
