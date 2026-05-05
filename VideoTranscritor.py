@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 from moviepy import TextClip, CompositeVideoClip
-from moviepy.video.tools.subtitles import SubtitlesClip, file_to_subtitles
+from moviepy.video.tools.subtitles import SubtitlesClip
 from moviepy.video.io.VideoFileClip import VideoFileClip
 
 class Application:
@@ -89,7 +89,7 @@ class Application:
         print(self.edited_subscriptions)
 
         #Add the edit made to the "transcription item" / Adiciona a edição feita no item "transcription"
-        for i in range(len(self.edited_subscriptions)):
+        for i, item in enumerate(self.edited_subscriptions):
             self.edited_subscriptions[i].update({"transcription": self.textBox.get(f"{i + 1}.1", f"{i + 1}.end")})
 
         #Create the srt file / Cria o arquivo srt
@@ -104,17 +104,20 @@ class Application:
         generator = lambda text: TextClip(
             text = text,
             font="arial.ttf",
-            font_size=24,
-            color='yellow',
+            font_size= int(self.clip.h * 0.05),
+            color='white',
+            stroke_color = 'black',
+            stroke_width = 2,
             method='caption',
-            size=(int(self.clip.w * 0.9), None))
+            text_align='center',
+            size=(int(self.clip.w * 0.9), int(self.clip.h * 0.2)))
 
         print(generator)
 
         #Composite and Render the video / #Compõe e renderiza o vídeo
         sub = SubtitlesClip("captions.srt", make_textclip = generator, encoding="utf-8")
-        video = CompositeVideoClip([self.clip, sub.with_position(("center", 0.85), relative=True)])
-        video.write_videofile("result.mp4", fps=self.clip.fps, codec="libx264", audio_codec="aac")
+        video = CompositeVideoClip([self.clip, sub.with_position(("center", 0.75), relative=True)])
+        video.write_videofile("result.mp4", fps=self.clip.fps, codec="libx264", audio_codec="aac", bitrate="5000k")
 
 
 #Main Screen / Tela principal
