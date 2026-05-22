@@ -1,5 +1,5 @@
 import whisper
-from whisper.utils import get_writer
+import torch
 import os
 import tkinter as tk
 from tkinter import filedialog
@@ -49,7 +49,7 @@ class Application:
             print("Arquivo existe")
 
             #Transcription AI Model / Modelo de IA de transcrição
-            model = whisper.load_model("turbo", device="cuda")
+            model = whisper.load_model("turbo", device="cuda" if torch.cuda.is_available() else "cpu")
             result = model.transcribe(self.fileName, language="pt", fp16=False)
             print(result)
 
@@ -94,7 +94,7 @@ class Application:
 
         #Create the srt file / Cria o arquivo srt
 
-        with open("captions.srt", "w", encoding="UTF-8") as file:
+        with open("./outputs/captions.srt", "w", encoding="UTF-8") as file:
             for caption in self.edited_subscriptions:
                 file.write(f"{int(caption['id']) + 1}\n")
                 file.write(f"{caption['start']} -> {caption['end']}\n")
@@ -103,7 +103,7 @@ class Application:
         #Text settings / Configurações do texto
         generator = lambda text: TextClip(
             text = text,
-            font="arial.ttf",
+            font="./assets/arial.ttf",
             font_size= int(self.clip.h * 0.05),
             color='white',
             stroke_color = 'black',
@@ -115,9 +115,9 @@ class Application:
         print(generator)
 
         #Composite and Render the video / #Compõe e renderiza o vídeo
-        sub = SubtitlesClip("captions.srt", make_textclip = generator, encoding="utf-8")
+        sub = SubtitlesClip("./outputs/captions.srt", make_textclip = generator, encoding="utf-8")
         video = CompositeVideoClip([self.clip, sub.with_position(("center", 0.75), relative=True)])
-        video.write_videofile("result.mp4", fps=self.clip.fps, codec="libx264", audio_codec="aac", bitrate="5000k")
+        video.write_videofile("./outputs/result.mp4", fps=self.clip.fps, codec="libx264", audio_codec="aac", bitrate="5000k")
 
 
 #Main Screen / Tela principal
