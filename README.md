@@ -129,12 +129,6 @@ python main.py
 
 ---
 
-# Preview
-
-(Adicione screenshots ou GIFs aqui)
-
----
-
 # Licença
 
 Este projeto foi desenvolvido para fins de estudo e experimentação com inteligência artificial aplicada ao processamento de vídeo.
@@ -267,12 +261,6 @@ python main.py
 * Batch video processing
 * Animated subtitles
 * Automatic speaker detection
-
----
-
-# Preview
-
-(Add screenshots or GIFs here)
 
 ---
 
