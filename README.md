@@ -46,6 +46,7 @@ A aplicação executa o modelo de IA localmente para a transcrição do vídeo. 
 # Requisitos
 
 * Python 3.10+
+* Microsoft Visual C++ Redistributable
 * FFmpeg instalado e adicionado ao PATH
 * GPU compatível com CUDA (opcional, mas recomendado)
 
@@ -55,19 +56,29 @@ A aplicação executa o modelo de IA localmente para a transcrição do vídeo. 
 
 Clone o repositório:
 
-```bash id="5g1yms"
+```bash 
 git clone https://github.com/estevaopolli/AI-video-subtitler.git
 ```
 
 Entre na pasta do projeto:
 
-```bash id="g2mmdg"
+```bash
 cd AI-video-subtitler
+```
+
+Crie o ambiente virtual:
+```bash
+python -m venv venv
+```
+
+Ative o ambiente virtual:
+```bash
+venv\Scripts\activate
 ```
 
 Instale as dependências:
 
-```bash id="mtq4ji"
+```bash 
 pip install -r requirements.txt
 ```
 
@@ -96,13 +107,13 @@ https://pytorch.org/get-started/locally/
 
 Exemplo para CUDA 13.0:
 
-```bash id="s1dmy8"
+```bash
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
 
 A aplicação detecta automaticamente se CUDA está disponível:
 
-```python id="hvokd4"
+```python
 device = "cuda" if torch.cuda.is_available() else "cpu"
 ```
 
@@ -110,7 +121,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Executando o Projeto
 
-```bash id="cpr3qh"
+```bash
 python main.py
 ```
 
@@ -126,12 +137,6 @@ python main.py
 * Processamento em lote
 * Legendas animadas
 * Detecção automática de speakers
-
----
-
-# Preview
-
-(Adicione screenshots ou GIFs aqui)
 
 ---
 
@@ -187,6 +192,7 @@ The application runs the AI model locally for vídeo transcription. Also, it's p
 # Requirements
 
 * Python 3.10+
+* Microsoft Visual C++ Redistributable
 * FFmpeg installed and added to PATH
 * CUDA-compatible GPU (optional, but recommended)
 
@@ -196,19 +202,29 @@ The application runs the AI model locally for vídeo transcription. Also, it's p
 
 Clone the repository:
 
-```bash id="o95ph7"
+```bash
 git clone https://github.com/estevaopolli/AI-video-subtitler.git
 ```
 
 Enter the project folder:
 
-```bash id="4y3ydh"
+```bash
 cd AI-video-subtitler
+```
+
+Create the virtual environment:
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment:
+```bash
+venv\Scripts\activate
 ```
 
 Install dependencies:
 
-```bash id="3dxyuh"
+```bash
 pip install -r requirements.txt
 ```
 
@@ -237,13 +253,13 @@ https://pytorch.org/get-started/locally/
 
 Example for CUDA 13.0:
 
-```bash id="yb7utg"
+```bash
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
 
 The application automatically detects CUDA support:
 
-```python id="v8gwv8"
+```python
 device = "cuda" if torch.cuda.is_available() else "cpu"
 ```
 
@@ -251,7 +267,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Running the Project
 
-```bash id="iowm61"
+```bash
 python main.py
 ```
 
@@ -270,13 +286,6 @@ python main.py
 
 ---
 
-# Preview
-
-(Add screenshots or GIFs here)
-
----
-
 # License
 
 This project was created for study purposes and experimentation with AI-powered video processing.
-
